@@ -1,0 +1,808 @@
+/* --- 1. DEFINISI VARIABEL DAN RESET DASAR --- */
+:root {
+    --primary-color: #00bcd4; /* Biru Cyan yang Cerah */
+    --secondary-color: #ff5722; /* Oranye/Merah */
+    --error-color: #dc3545; /* Merah untuk Error */
+    --text-color: #333;
+    --light-text: #666;
+    --background-light: #f4f7f6;
+    --white: #ffffff;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* FONT BARU: Menggunakan Poppins untuk teks utama */
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--white);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* --- 2. TYPOGRAPHY DAN HEADING --- */
+/* FONT BARU: Menggunakan Playfair Display untuk judul */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #2c3e50;
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2.2em;
+    margin-top: 0;
+}
+
+.centered-heading {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--light-text);
+    margin-bottom: 40px;
+    font-size: 1.1em;
+}
+
+.section-padding {
+    padding: 60px 0;
+}
+
+/* LIST TANPA BULLET (untuk Why Choose Us) */
+.clean-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+/* --- 3. HEADER DAN NAVBAR --- */
+header {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.site-logo {
+    height: 100px;
+    width: auto;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 8px 10px;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+/* Tombol pada Navbar */
+.btn-primary-nav {
+    background-color: var(--primary-color);
+    color: var(--white) !important;
+    padding: 8px 18px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn-primary-nav:hover {
+    background-color: #0097a7;
+}
+
+.btn-small {
+    background-color: var(--white);
+    color: var(--primary-color) !important;
+    border: 2px solid var(--primary-color);
+    padding: 6px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-small:hover {
+    background-color: var(--primary-color);
+    color: var(--white) !important;
+}
+
+.btn-logout {
+    background-color: var(--white);
+    color: var(--secondary-color) !important;
+    border: 2px solid var(--secondary-color);
+    padding: 8px 18px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-logout:hover {
+    background-color: var(--secondary-color);
+    color: var(--white) !important;
+}
+
+.user-info {
+    font-size: 0.9em;
+    color: var(--light-text);
+    margin-left: 10px;
+}
+
+/* --- 4. HERO SECTION (Halaman Index) --- */
+.hero {
+    /* Ganti dengan gambar Hero Anda. Gunakan overlay putih untuk teks yang lebih jelas */
+    background: var(--background-light) url('assets/images/hero_bg.jpg') no-repeat center center/cover;
+    background-blend-mode: multiply;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    color: var(--light-text);
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+.btn-large {
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border-radius: 8px;
+}
+
+/* --- 5. SERVICE SECTION (Index Preview) --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.read-more {
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+/* --- 6. LAYANAN FULL PAGE (layanan.php) --- */
+.services-full-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.service-full-card {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background-color: var(--background-light);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.service-icon-large {
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.service-full-card .service-content {
+    flex-grow: 1;
+    margin-bottom: 15px;
+}
+
+.service-full-card h3 {
+    color: var(--primary-color);
+}
+
+/* --- 7. ABOUT PAGE (Tentang Kami) --- */
+.about-flex-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 50px;
+}
+
+.about-text {
+    flex: 2;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 350px;
+}
+
+.about-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+/* Tim Dokter */
+.doctor-team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.doctor-card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    max-width: 300px;
+}
+
+.doctor-photo {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+
+/* --- 8. FUNGSI AUTH (Login, Janji Temu) --- */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0;
+    min-height: calc(100vh - 200px);
+    background-color: var(--background-light);
+}
+
+.auth-container {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.auth-container.large-form {
+    max-width: 700px;
+    text-align: left;
+}
+
+.auth-form {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Styling untuk input yang memiliki error */
+.form-control.is-invalid {
+    border-color: var(--error-color);
+}
+
+/* Pesan Sukses/Error - FIX untuk tumpang tindih */
+.success-message {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.error-message {
+    /* Perbaikan PENTING agar tidak tumpang tindih */
+    display: block;
+    background-color: #ffebee;
+    color: var(--error-color);
+    border: 1px solid #ef9a9a;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.85em;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+
+/* --- 9. RIWAYAT / DATA TABLE --- */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: var(--shadow);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.data-table th, .data-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.data-table th {
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.data-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.data-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Status Badges */
+.status-confirmed, .status-pending, .status-completed, .status-cancelled {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 0.85em;
+    text-transform: capitalize;
+}
+
+.status-confirmed {
+    background-color: #a5d6a7;
+    color: #2e7d32;
+}
+
+.status-pending {
+    background-color: #ffcc80;
+    color: #ef6c00;
+}
+
+.status-completed {
+    background-color: #bbdefb;
+    color: #1976d2;
+}
+
+.status-cancelled {
+    background-color: #ef9a9a;
+    color: #c62828;
+}
+
+
+/* --- 10. FOOTER --- */
+footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 40px 0;
+    font-size: 0.9em;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #4a6372;
+}
+
+.footer-grid h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.footer-grid ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-grid ul li {
+    margin-bottom: 8px;
+}
+
+.footer-grid a {
+    color: #ecf0f1;
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+.footer-grid a:hover {
+    color: var(--primary-color);
+}
+
+.footer-grid p {
+    color: #ccc; /* Pindahkan inline style p dari PHP ke sini */
+}
+
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    color: #7f8c8d;
+}
+
+.contact-info p i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+/* ==================================== */
+/* --- 11. STYLE DETAIL LAYANAN (MODERN) -- */
+/* ==================================== */
+
+.detail-page .container {
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.detail-content-wrapper {
+display: flex;
+gap: 40px; /* Jarak antar kolom */
+align-items: flex-start;
+padding: 30px 0;
+}
+
+.detail-description-area {
+flex-grow: 1;
+max-width: 70%; /* Lebar Konten Utama (akan di-override di mobile) */
+}
+
+.detail-sidebar {
+flex: 0 0 300px; /* Lebar Sidebar Tetap */
+padding: 0;
+position: sticky; /* Agar sidebar tetap di tempat saat di-scroll */
+top: 20px;
+}
+
+.detail-description-area h2 {
+color: #333;
+font-size: 1.8em;
+font-weight: 600;
+border-left: 5px solid #00bcd4; /* Garis tepi biru muda */
+padding-left: 15px;
+margin-top: 40px;
+margin-bottom: 20px;
+}
+
+.detail-description-area h3 {
+color: #555;
+font-size: 1.4em;
+margin-bottom: 15px;
+font-weight: 500;
+}
+
+.description-text {
+line-height: 1.7;
+color: #444;
+margin-bottom: 15px;
+}
+
+/* Gambar */
+.detail-image-desktop, .detail-image-mobile {
+border-radius: 10px;
+overflow: hidden;
+margin-bottom: 30px;
+box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.detail-image-desktop img, .detail-image-mobile img {
+width: 100%;
+height: auto;
+display: block;
+}
+
+/* Di desktop, sembunyikan gambar mobile */
+.detail-image-mobile {
+display: none;
+}
+
+/* List Prosedur */
+.styled-list {
+list-style: none;
+padding: 0;
+margin-bottom: 30px;
+}
+
+.styled-list li {
+padding: 10px 0;
+font-size: 1.05em;
+color: #444;
+border-bottom: 1px dotted #e0e0e0;
+}
+
+.styled-list li i {
+color: var(--primary-color);
+margin-right: 12px;
+}
+
+.styled-list li:last-child {
+border-bottom: none;
+}
+
+/* --- Sidebar Info Card --- */
+.info-card-sidebar, .action-box-sidebar {
+background: var(--background-light); /* Menggunakan variabel dasar */
+border-radius: 10px;
+padding: 20px;
+margin-bottom: 20px;
+border: 1px solid #eee;
+}
+
+.info-card-sidebar h4 {
+color: var(--primary-color);
+font-size: 1.2em;
+border-bottom: 2px solid var(--primary-color);
+padding-bottom: 10px;
+margin-bottom: 15px;
+}
+
+.info-card-sidebar p {
+margin-bottom: 5px;
+color: #777;
+font-size: 0.9em;
+}
+
+.info-card-sidebar strong {
+color: #444;
+}
+
+.info-value {
+display: block;
+font-size: 1.2em;
+font-weight: 600;
+color: #333;
+}
+
+.price-value {
+color: var(--secondary-color); /* Menggunakan secondary color untuk harga */
+}
+
+.action-box-sidebar h4 {
+color: #333;
+font-size: 1.3em;
+margin-bottom: 10px;
+}
+
+.action-box-sidebar p {
+color: #777;
+margin-bottom: 15px;
+}
+
+/* Tombol bawah */
+.action-buttons-bottom a {
+margin-right: 15px;
+margin-bottom: 15px; /* Untuk tampilan mobile */
+}
+
+/* --- MEDIA QUERIES (Responsif) --- */
+@media (max-width: 900px) {
+   
+/* PERBAIKAN STABILITAS NAVBAR */
+    nav a,
+    .btn-primary-nav,
+    .btn-small,
+    .btn-logout {
+        text-align: left !important;
+        padding: 8px 10px !important;
+    }
+
+/* DETAIL LAYANAN RESPONSIVE */
+    .detail-content-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+.detail-description-area {
+max-width: 100%;
+}
+
+/* Di mobile, sembunyikan gambar desktop dan tampilkan gambar mobile di atas */
+.detail-image-desktop {
+display: none;
+}
+.detail-image-mobile {
+display: block;
+}
+
+    .detail-sidebar {
+        flex: auto;
+        position: static; /* Hilangkan sticky di mobile */
+        order: -1; /* Pindahkan sidebar (gambar dan info box) ke atas di mobile */
+    }
+
+.action-buttons-bottom {
+text-align: center;
+margin-top: 30px;
+}
+
+.action-buttons-bottom a {
+display: block;
+width: 100%;
+margin-right: 0;
+}
+
+/* AKHIR DETAIL LAYANAN RESPONSIVE */
+
+
+    .about-flex-container {
+        flex-direction: column;
+    }
+
+    .choose-us-flex {
+        flex-direction: column-reverse;
+    }
+   
+    .choose-us-image {
+        margin-bottom: 30px;
+    }
+
+    .doctor-team-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    /* PERBAIKAN STABILITAS NAVBAR */
+    nav a,
+    .btn-primary-nav,
+    .btn-small,
+    .btn-logout {
+        width: 100%; /* Membuat link dan tombol mengambil lebar penuh */
+        text-align: left;
+        padding: 8px 10px; /* Seragamkan padding */
+    }
+
+    .user-info {
+        width: 100%; /* Pastikan info user juga mengambil lebar penuh */
+        margin-left: 0; /* Reset margin kiri */
+        margin-top: 5px;
+        padding: 5px 0;
+    }
+    /* AKHIR PERBAIKAN NAVBAR */
+
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .services-full-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .data-table, .data-table thead, .data-table tbody, .data-table th, .data-table td, .data-table tr {
+        display: block;
+    }
+   
+    .data-table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+   
+    .data-table tr { border: 1px solid #ccc; margin-bottom: 10px; border-radius: 8px; }
+   
+    .data-table td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+    }
+   
+    .data-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 10px;
+        font-weight: bold;
+        text-align: left;
+        color: var(--primary-color);
+    }
+}
